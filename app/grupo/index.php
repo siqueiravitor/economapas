@@ -17,6 +17,8 @@ if (!$grupoId || !isset($grupoNome)) {
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <title>Economapas - Grupo</title>
 
         <!-- JQuery -->
@@ -126,11 +128,9 @@ if (!$grupoId || !isset($grupoNome)) {
             <?php
         }
         ?>
-        ?>
-
         <div class="d-flex justify-content-center mt-5 row">
 
-            <div class="col-lg-4 col-md-12 col-sm-12">
+            <div class="col-lg-4 col-md-11 col-sm-11 mb-3">
                 <div class="card">
                     <div class="card-header text-center title">
                         Adicionar cidade ao grupo - <?= $grupoNome ?>
@@ -183,15 +183,15 @@ if (!$grupoId || !isset($grupoNome)) {
             </div>
 
 
-            <div class="col-lg-6 col-md-12 col-sm-12">
+            <div class="col-lg-6 col-md-11 col-sm-11 mb-3">
                 <div class="card">
 
                     <div class="card-header text-center title">
                         Cidades do grupo - <?= $grupoNome ?>
                     </div>
 
-                    <div class="card-body">
-                        <table class="table dataTable table-hover" id="tabelaGrupos">
+                    <div class="card-body table-responsive">
+                        <table class="table dataTable table-hover table-sm" id="tabelaGrupos">
                             <thead>
                                 <tr>
                                     <th>Município</th>

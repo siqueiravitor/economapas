@@ -1,4 +1,3 @@
-
 Drop Schema economapas;
 Create Schema economapas;
 use economapas;
@@ -43,7 +42,3 @@ ALTER TABLE grupocidade ADD FOREIGN KEY(idgrupo) REFERENCES grupo (idgrupo);
 
 insert into usuario values (null, 'joao', md5('1234'), 's');
 insert into usuario values (null, 'maria', md5('5678'), 's');
-
-
-
-

@@ -8,7 +8,7 @@
             Início
         </a>
         <a href='#' onclick="loading()" class='menu'>
-            Importar dados
+            Importar
         </a>
     </div>
     <a id="logoff" href="../config/logout.php">
