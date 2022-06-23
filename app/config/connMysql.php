@@ -1,7 +1,16 @@
 <?php
 
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
- */
+$con = mysqli_connect('localhost', 'root', '', 'economapas');
+$sql = "SET NAMES 'utf8'";
+mysqli_query($con, $sql);
+
+$sql = 'SET character_set_connection=utf8';
+mysqli_query($con, $sql);
+
+$sql = 'SET character_set_client=utf8';
+mysqli_query($con, $sql);
+
+$sql = 'SET character_set_results=utf8';
+$res = mysqli_query($con, $sql);
+
 

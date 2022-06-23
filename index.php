@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Desafio Economapas</title>
 
+        <!-- JQuery -->
+        <script src="./vendor/jquery/jquery-3.6.0.min.js"></script>
         <!-- Bootstrap -->
         <link href="./vendor/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
 
@@ -81,10 +83,50 @@
                 }
             }
         </style>
+        <script>
+            function senhaVisivel() {
+                if ($("#senha")[0].type === 'password') {
+                    $("#senha").attr('type', 'text');
+                } else {
+                    $("#senha").attr('type', 'password');
+                }
+            }
+            $(document).ready(function () {
+                setTimeout(() => {
+                    $("#msg").hide();
+                }, 6000)
+            });
+        </script>
     </head>
     <body>
         <form method="POST" action="./validaLogin/validaLogin.php">
             <div class="card">
+                <?php
+                if (isset($_GET['alert']) && isset($_GET['text'])) {
+                    switch ($_GET['alert']) {
+                        case 0:
+                            $alert = 'green';
+                            break;
+                        case 1:
+                            $alert = 'red';
+                            break;
+                        case 2:
+                            $alert = 'orange';
+                            break;
+                        default:
+                            $alert = '';
+                    }
+                    ?>
+                    <div id="msg">
+                        <div class="w-100 text-center d-flex justify-content-center mb-4">
+                            <div class="rounded" style="padding: 1rem 2rem;width: 35rem; background-color: <?= $alert ?>; color: #fff; font-weight: 600;">
+                                <span><?= $_GET['text'] ?></span>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>
                 <h5>Acesso ao sistema</h5>
 
                 <div class="form-group">
@@ -93,17 +135,13 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label">Senha:</label> 
-                    <input class='form-control' placeholder="Senha" name="senha" type="password" required>
+                    <input id="senha" class='form-control' placeholder="Senha" name="senha" type="password" required>
                 </div>
 
-                <div id='options' class="d-flex justify-content-between form-group">
+                <div id='options' class="d-flex justify-content-end form-group">
                     <div>
-                        <input type="checkbox" name="manterLogin" class="form-check-input">
-                        <small class='form-check-label'>Manter-se logado</small>
-                    </div>
-                    <div>
-                        <input type="checkbox" name="senhaVisivel" class="form-check-input">
-                        <small class='form-check-label'>Mostrar senha</small>
+                        <input type="checkbox" onchange="senhaVisivel()" class="form-check-input">
+                        <span class='form-check-label'>Mostrar senha</span>
                     </div>
                 </div>
 
