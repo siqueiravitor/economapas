@@ -5,6 +5,8 @@ include "../config/connMysql.php";
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <title>Economapas</title>
 
         <!-- JQuery -->
@@ -79,7 +81,7 @@ include "../config/connMysql.php";
 
         <div class="d-flex justify-content-center mt-5 row">
 
-            <div class="col-3">
+            <div class="col-lg-3 col-md-11 col-sm-11 mb-3">
                 <div class="card">
                     <div class="card-header text-center title">
                         Criar grupo
@@ -102,15 +104,15 @@ include "../config/connMysql.php";
             </div>
 
 
-            <div class="col-7">
+            <div class="col-lg-7 col-md-11 col-sm-11 mb-3">
                 <div class="card">
 
                     <div class="card-header text-center title">
                         Grupos de países
                     </div>
 
-                    <div class="card-body">
-                        <table class="table dataTable table-hover" id="tabelaGrupos">
+                    <div class="card-body table-responsive">
+                        <table class="table dataTable table-hover table-sm" id="tabelaGrupos">
                             <thead>
                                 <tr>
                                     <th class='text-center'>Grupo</th>
@@ -136,13 +138,13 @@ include "../config/connMysql.php";
                                         <td class="text-center">
                                             <a href="../grupo/?id=<?= $row[2] ?>"
                                                class="btn btn-primary btn-sm">
-                                                Ver grupo
+                                                Visualizar
                                             </a>
                                         </td>
                                         <td class="text-center">
                                             <a href="./include/eGrupo.php?id=<?= $row[2] ?>"
                                                class="btn btn-danger btn-sm">
-                                                Remover grupo
+                                                Remover
                                             </a>
                                         </td>
                                     </tr>
