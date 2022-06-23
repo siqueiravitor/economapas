@@ -3,16 +3,18 @@ Create Schema economapas;
 use economapas;
 
 CREATE TABLE usuario (
-	idusuario int(11) PRIMARY KEY AUTO_INCREMENT,
+	idusuario int(11) AUTO_INCREMENT PRIMARY KEY,
 	login varchar(255),
 	senha varchar(255),
-    ativo enum('s','n')
+	ativo enum('s','n')
 );
+
 CREATE TABLE grupocidade (
 	idgrupocidade int(11) AUTO_INCREMENT PRIMARY KEY,
 	idgrupo int(11),
-	cidade varchar(255)
+	idmunicipio int(11)
 );
+
 CREATE TABLE grupo (
 	idgrupo int(11) AUTO_INCREMENT PRIMARY KEY,
 	idusuario int(11),
@@ -26,6 +28,7 @@ CREATE TABLE estado (
 	nome varchar(255),
 	sigla varchar(2)
 );
+
 CREATE TABLE municipio (
 	idmunicipio int(11) AUTO_INCREMENT PRIMARY KEY,
 	idestado int(11),
@@ -34,8 +37,8 @@ CREATE TABLE municipio (
 );
 
 ALTER TABLE grupocidade ADD FOREIGN KEY(idgrupo) REFERENCES grupo (idgrupo);
+ALTER TABLE grupocidade ADD FOREIGN KEY(idmunicipio) REFERENCES municipio (idmunicipio);
+ALTER TABLE grupocidade ADD FOREIGN KEY(idgrupo) REFERENCES grupo (idgrupo);
 
 insert into usuario values (null, 'joao', md5('1234'), 's');
 insert into usuario values (null, 'maria', md5('5678'), 's');
-
-

@@ -40,5 +40,3 @@ Ficaria, por exemplo: "C:\xampp\htdocs\economapas";
 
 #7
 Feito todos os procedimentos anteriores, deverá ser acessado, em um navegador, a url: "localhost/economapas"
-
-#
